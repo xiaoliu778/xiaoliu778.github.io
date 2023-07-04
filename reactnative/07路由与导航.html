@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="zh-Hans" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>博客</title><link rel="icon" type="image/x-icon" href="/favicon.ico"><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"键入以继续","blurHolder":"数据检索","noResult":"无 $0 相关数据"},"code":{"codeInfo":"$0 - 共 $1 行","copy":"复制","copyFinish":"复制成功","expand":"展开"}}</script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lightgallery.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-zoom.css"><link type="text/css" rel="stylesheet" href="//unpkg.com/lightgallery@2.7.1/css/lg-thumbnail.css"><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><meta name="generator" content="Hexo 6.3.0"></head><body><div class="loading" style="opacity: 0"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="数据检索" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">首页</span></a></li><li class="navItem" matchdata="标签,类别"><a class="navBlock" href="/archives/"><span class="navItemTitle">文章时间</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">关于我们</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1></h1></div><hr><div id="post-content"><h3 id="路由与导航-STEPS"><a href="#路由与导航-STEPS" class="headerlink" title="路由与导航(STEPS)"></a>路由与导航(STEPS)</h3><ul>
+<li>1.简介</li>
+<li>2.基础组件</li>
+<li>3.Stack导航(栈导航)</li>
+<li>4.BottomTab导航(底部tabbar导航)</li>
+<li>5.Drawer导航(抽屉效果)</li>
+<li>6.MaterialTopTab导航(tap导航支持左右滑动)</li>
+</ul>
+<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><ul>
+<li>RN中的路由是通过React-Navigation来完成的<ul>
+<li>React中通过React-Router实现路由</li>
+<li>RN.044之前，React-Navigation在核心中维护，0.44之后，独立维护</li>
+</ul>
+</li>
+<li>目前使用React-Navigation <strong>5.x版本</strong><ul>
+<li>官网：<a target="_blank" rel="noopener" href="https://reactnavigation.org/">https://reactnavigation.org/</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="基础组件"><a href="#基础组件" class="headerlink" title="基础组件"></a>基础组件</h4><ul>
+<li>安装<ul>
+<li>npm install @react-navigation&#x2F;native</li>
+<li>npm install react-native-reanimated react-native-gesture-handler react-native-screens react-native-safe-area-context @react-native-community&#x2F;masked-view<ul>
+<li>react-native-reanimated(动画增强组件)</li>
+<li>react-native-gesture-handler(手势处理组件)</li>
+<li>react-native-screens(屏幕处理组件)</li>
+<li>react-native-safe-area-context(处理刘海屏，针对于安全区域做处理的)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>连接<ul>
+<li>RN 0.60后安卓环境自动链接路由 (Android无需任何操作)</li>
+<li>iOS 下需要手动链接路由 ( npx pod-install ios)</li>
+</ul>
+</li>
+<li>添加头部<ul>
+<li>将如下代码，放到应用的头部 ( 例如：放到index.js或App.js文件的头部 )</li>
+<li>import ‘react-native-gesture-handler’</li>
+</ul>
+</li>
+<li>添加导航容器<ul>
+<li>我们需要在入口文件中，把整个应用，包裹在导航容器 (NavigationContainer) 中 (例如：在index.js或App.js文件中)</li>
+</ul>
+</li>
+</ul>
+<h4 id="Stack导航"><a href="#Stack导航" class="headerlink" title="Stack导航"></a>Stack导航</h4><ul>
+<li>简介<ul>
+<li>RN中默认没有类似浏览器的history对象</li>
+<li>在RN中跳转之前，先将路由声明在Stack中</li>
+</ul>
+</li>
+<li>安装<ul>
+<li>npm install @react-navigation&#x2F;stack</li>
+</ul>
+</li>
+<li>使用<ul>
+<li>import [ createStackNavigator ] from ‘@react-navigation&#x2F;stack’</li>
+<li>const Stack &#x3D; createStackNavigator();</li>
+</ul>
+</li>
+</ul>
+<h4 id="Navigator属性"><a href="#Navigator属性" class="headerlink" title="Navigator属性"></a>Navigator属性</h4><ul>
+<li>initialRouteName <ul>
+<li>初始化路由，即默认加载的路由</li>
+</ul>
+</li>
+<li>headerMode<ul>
+<li>float: iOS头部效果</li>
+<li>screen: Android 头部效果</li>
+<li>none：不显示头部</li>
+</ul>
+</li>
+<li>screenOptions 0.6版本以后不在支持并且改到了options中</li>
+</ul>
+<h4 id="Screen属性"><a href="#Screen属性" class="headerlink" title="Screen属性"></a>Screen属性</h4><ul>
+<li>options<ul>
+<li>title (标题)</li>
+<li>headerTitleStyle (标题样式)</li>
+<li>headerStyle (页头样式)</li>
+<li>headerLeft (左侧内容)</li>
+<li>headerRight (右侧内容)</li>
+<li>headerTintColor (标题颜色)、</li>
+</ul>
+</li>
+</ul>
+<h3 id="React-native-vector-icons-图标组件库"><a href="#React-native-vector-icons-图标组件库" class="headerlink" title="React-native-vector-icons (图标组件库)"></a>React-native-vector-icons (图标组件库)</h3><ul>
+<li>安装<ul>
+<li>npm install –save react-native-vector-icons</li>
+</ul>
+</li>
+<li>将图标连接到应用 (环境问题较多)<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/oblabor/react-native-vector-icons">https://github.com/oblabor/react-native-vector-icons</a></li>
+</ul>
+</li>
+<li>使用<ul>
+<li>需要到具体的图标库官网查看</li>
+<li>例如：lonicons、FontAwesome、AntDesign</li>
+</ul>
+</li>
+</ul>
+<h3 id="Drawer导航"><a href="#Drawer导航" class="headerlink" title="Drawer导航"></a>Drawer导航</h3><ul>
+<li>安装<ul>
+<li>npm install @react-navigation&#x2F;drawer</li>
+<li>使用Drawer是需要一些额外的库<ul>
+<li><a target="_blank" rel="noopener" href="https://docs.swmansion.com/react-native-gesture-handler/docs/installation">https://docs.swmansion.com/react-native-gesture-handler/docs/installation</a><ul>
+<li>npm install –save react-native-gesture-handler</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/">https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/</a><ul>
+<li>npm install react-native-reanimated</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用<ul>
+<li>import {createDrawerNavigator} from ‘@react-navigation&#x2F;drawer’;</li>
+<li>const Drawer &#x3D; createDrawerNavigator();</li>
+<li>声明 Drawer.Navigator 和 Drawer.Screen</li>
+</ul>
+</li>
+</ul>
+<h4 id="配置Drawer导航"><a href="#配置Drawer导航" class="headerlink" title="配置Drawer导航"></a>配置Drawer导航</h4><ul>
+<li>Navigator属性<ul>
+<li>drawerPosition：菜单显示位置，left(默认) | right</li>
+<li>drawertype：菜单动画效果，front | back | slide | permanent</li>
+<li>drawerStyle: 菜单样式<ul>
+<li>backgroundColor、width…</li>
+</ul>
+</li>
+<li>drawerContentOptions：选中菜单项样式<ul>
+<li>activeTintColor：当前选中菜单字体颜色</li>
+<li>itemStyle：所有菜单项样式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Screen属性<ul>
+<li>options<ul>
+<li>title：菜单标题</li>
+<li>drawerLabel：代替title，返回复杂的组件。{focused:boolean,color:string}</li>
+<li>drawerIcon: 返回图标的函数 {focused:boolean,color:string,size:number}</li>
+<li>headerShown：是否显示header。布尔值，默认false不显示</li>
+<li>headerLeft：函数，声明header左侧的显示内容</li>
+<li>headerRight:函数，声明header右侧的显示内容</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div id="paginator"></div></div><div id="post-footer"></div></div><div class="bottom-btn"><div><a id="to-top" onClick="scrolls.scrolltop();" title="回到顶部" style="opacity: 0; display: none;">∧</a><a id="color-mode" onClick="colorMode.change()" title="切换主题"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">刘小烨</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>目录</h1><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E7%94%B1%E4%B8%8E%E5%AF%BC%E8%88%AA-STEPS"><span class="toc-number">1.</span> <span class="toc-text">路由与导航(STEPS)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6"><span class="toc-number">1.2.</span> <span class="toc-text">基础组件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Stack%E5%AF%BC%E8%88%AA"><span class="toc-number">1.3.</span> <span class="toc-text">Stack导航</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Navigator%E5%B1%9E%E6%80%A7"><span class="toc-number">1.4.</span> <span class="toc-text">Navigator属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Screen%E5%B1%9E%E6%80%A7"><span class="toc-number">1.5.</span> <span class="toc-text">Screen属性</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React-native-vector-icons-%E5%9B%BE%E6%A0%87%E7%BB%84%E4%BB%B6%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">React-native-vector-icons (图标组件库)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Drawer%E5%AF%BC%E8%88%AA"><span class="toc-number">3.</span> <span class="toc-text">Drawer导航</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEDrawer%E5%AF%BC%E8%88%AA"><span class="toc-number">3.1.</span> <span class="toc-text">配置Drawer导航</span></a></li></ol></li></ol></div><section id="total"><a id="total-archives" href="/archives"><span class="total-title">文章 总数:</span><span class="total-number">12</span></a><div id="total-tags"><span class="total-title">标签:</span><span class="total-number">3</span></div><div id="total-categories"><span class="total-title">分类:</span><span class="total-number">8</span></div></section></div><footer><nobr>构建自 <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> 使用主题 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr>主题作者 <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script src="/js/arknights.js"></script><script src="//unpkg.com/lightgallery@2.7.1/lightgallery.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/zoom/lg-zoom.min.js"></script><script src="//unpkg.com/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.min.js"></script><script src="/js/pjax.js"></script><script class="pjax-js">reset= () => {code.findCode();
+document.querySelector('.lg-container')?.remove()
+lightGallery(document.getElementById('post-bg'), {
+  plugins: [lgZoom,lgThumbnail],
+  selector: '.item-img'})}</script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
