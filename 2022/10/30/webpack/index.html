@@ -233,7 +233,12 @@
 <li>打包前200MB</li>
 <li>打包后2MB</li>
 </ul>
-<p><img src="/../webpack/webpacklc.png" alt="img"></p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/../webpack/webpacklc.png"
+                      alt="img"
+                ></p>
 <h4 id="其中功能："><a href="#其中功能：" class="headerlink" title="其中功能："></a>其中功能：</h4><ul>
 <li>less&#x2F;sass -&gt;css</li>
 <li>ES6&#x2F;7&#x2F;8 -&gt;ES5处理js兼容</li>
@@ -266,7 +271,12 @@
 <li>修改package.json，自定义打包命令 - 让 webpack使用配置文件<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;scripts&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;build&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;webpack&quot;</span><br><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br></code></pre></td></tr></table></figure></li>
 <li>打包观察效果</li>
 </ul>
-<h4 id="打包流程图"><a href="#打包流程图" class="headerlink" title="打包流程图"></a>打包流程图</h4><p><img src="/../webpack/pack%E6%89%93%E5%8C%85.png" alt="img"><br>所有要被打包的资源都要跟入口产生直接&#x2F;间接的引用关系</p>
+<h4 id="打包流程图"><a href="#打包流程图" class="headerlink" title="打包流程图"></a>打包流程图</h4><p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/../webpack/pack%E6%89%93%E5%8C%85.png"
+                      alt="img"
+                ><br>所有要被打包的资源都要跟入口产生直接&#x2F;间接的引用关系</p>
 <h4 id="插件-自动生成html文件"><a href="#插件-自动生成html文件" class="headerlink" title="插件-自动生成html文件"></a>插件-自动生成html文件</h4><p> <a class="link"   target="_blank" rel="noopener" href="https://www.webpackjs.com/plugins/html-webpack-plugin/" >html-webpack-plugin<i class="fas fa-external-link-alt"></i></a>插件, 让webpack打包后生成html文件并自动引入打包后的js</p>
 <ul>
 <li>下载插件<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs txt">yarn add html-webpack-plugin  -D<br></code></pre></td></tr></table></figure></li>

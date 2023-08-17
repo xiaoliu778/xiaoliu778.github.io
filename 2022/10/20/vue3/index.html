@@ -218,7 +218,12 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <h4 id="vue3简介"><a href="#vue3简介" class="headerlink" title="vue3简介"></a>vue3简介</h4><p><img src="/../vue3/image-20220729221023361.png" alt="img"></p>
+                <h4 id="vue3简介"><a href="#vue3简介" class="headerlink" title="vue3简介"></a>vue3简介</h4><p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/../vue3/image-20220729221023361.png"
+                      alt="img"
+                ></p>
 <ul>
 <li>2020年9月18日，Vue.js发布3.0版本，代号：One Piece（海贼王）</li>
 <li>耗时2年多、<a class="link"   target="_blank" rel="noopener" href="https://github.com/vuejs/vue-next/graphs/commit-activity" >2600+次提交<i class="fas fa-external-link-alt"></i></a>、<a class="link"   target="_blank" rel="noopener" href="https://github.com/vuejs/rfcs/tree/master/active-rfcs" >30+个RFC<i class="fas fa-external-link-alt"></i></a>、<a class="link"   target="_blank" rel="noopener" href="https://github.com/vuejs/vue-next/pulls?q=is:pr+is:merged+-author:app/dependabot-preview+" >600+次PR<i class="fas fa-external-link-alt"></i></a>、<a class="link"   target="_blank" rel="noopener" href="https://github.com/vuejs/vue-next/graphs/contributors" >99位贡献者<i class="fas fa-external-link-alt"></i></a></li>
@@ -326,7 +331,12 @@
 <p>表达的含义是this并没有指向当前组件实例；</p>
 <p>并且在setup被调用之前，data、computed、methods等都没有被解析；</p>
 <p>所以无法在setup中获取this；</p>
-<p><img src="/../vue3/image-20220731183326486.png" alt="image-20220731183326486"></p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/../vue3/image-20220731183326486.png"
+                      alt="image-20220731183326486"
+                ></p>
 <p><strong>其实在之前的这段描述是和源码有出入的：</strong></p>
 <p>之前的描述大概含义是不可以使用this是因为组件实例还没有被创建出来；</p>
 <p>通过阅读源码发现，代码是按照如下顺序执行的：</p>
@@ -336,7 +346,12 @@
 <p>在 setupStatefulComponent 取出了 setup 函 数；</p>
 <p>通过callWithErrorHandling 的函数执行 setup；</p>
 <p>从上面的代码我们可以看出， <strong>组件的instance肯定是在执行setup函数之前就创建出来了</strong>。</p>
-<p><img src="/" alt="image-20220731183456961"></p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/"
+                      alt="image-20220731183456961"
+                ></p>
 <h4 id="reactive函数"><a href="#reactive函数" class="headerlink" title="reactive函数"></a>reactive函数</h4><ul>
 <li>作用: 定义一个<strong>对象类型</strong>的响应式数据（基本类型不要用它，控制台会报警告，要用<code>ref</code>函数）</li>
 <li>语法：<code>const 代理对象= reactive(源对象)</code>接收一个对象（或数组），返回一个<strong>代理对象（Proxy的实例对象，简称proxy对象）</strong></li>
@@ -368,14 +383,29 @@
 </li>
 </ul>
 <h5 id="toRefs"><a href="#toRefs" class="headerlink" title="toRefs"></a>toRefs</h5><p>如果我们使用ES6的解构语法，对reactive返回的对象进行解构获取值，那么之后无论是修改解构后的变量<strong>，还是</strong>修改reactive返回的state对象<strong>，</strong>数据都不再是响应式的：</p>
-<p><img src="/../vue3/image-20220801222944169.png" alt="image-20220801222944169"></p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/../vue3/image-20220801222944169.png"
+                      alt="image-20220801222944169"
+                ></p>
 <p>那么有没有办法<strong>让我们解构出来的属性是响应式</strong>的呢？</p>
 <p>Vue为我们提供了一个toRefs的函数，可以将reactive返回的对象中的属性都转成ref；</p>
 <p>那么我们再次进行结构出来的 name 和 age 本身都是 ref的；</p>
-<p><img src="/../vue3/image-20220801223009192.png" alt="image-20220801223009192"></p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/../vue3/image-20220801223009192.png"
+                      alt="image-20220801223009192"
+                ></p>
 <p>这种做法相当于已经在state.name和ref.value之间建立了 链接，任何一个修改都会引起另外一个变化；</p>
 <h5 id="toRef"><a href="#toRef" class="headerlink" title="toRef"></a>toRef</h5><p>如果我们只希望转换一个<strong>reactive</strong>对象中的属性为ref, 那么可以使用<strong>toRef</strong>的方法</p>
-<p><img src="/../vue3/image-20220801223105290.png" alt="image-20220801223105290"></p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/../vue3/image-20220801223105290.png"
+                      alt="image-20220801223105290"
+                ></p>
 <p>应用: 要将响应式对象中的某个属性单独提供给外部使用时。</p>
 <h5 id="ref的其它API"><a href="#ref的其它API" class="headerlink" title="ref的其它API"></a>ref的其它API</h5><h6 id="unref"><a href="#unref" class="headerlink" title="unref"></a><strong>unref</strong></h6><p>如果我们想要<strong>获取一个ref引用中的value</strong>，那么也可以通过<strong>unref</strong>方法：</p>
 <p>如果参数是一个 ref，则返回内部值，否则返回参数本身；</p>
@@ -383,7 +413,12 @@
 <h6 id="isRef"><a href="#isRef" class="headerlink" title="isRef"></a><strong>isRef</strong></h6><p>判断值是否是一个ref对象。</p>
 <h6 id="shallowRef"><a href="#shallowRef" class="headerlink" title="shallowRef"></a><strong>shallowRef</strong></h6><p>创建一个浅层的ref对象；</p>
 <h6 id="triggerRef"><a href="#triggerRef" class="headerlink" title="triggerRef"></a><strong>triggerRef</strong></h6><p>手动触发和 shallowRef 相关联的副作用</p>
-<p><img src="/../vue3/image-20220801223301726.png" alt="image-20220801223301726"></p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/../vue3/image-20220801223301726.png"
+                      alt="image-20220801223301726"
+                ></p>
 <h6 id="shallowRef-1"><a href="#shallowRef-1" class="headerlink" title="shallowRef"></a>shallowRef</h6><ul>
 <li>shallowRef：只处理基本数据类型的响应式, 不进行对象的响应式处理。</li>
 <li>什么时候使用?<ul>
@@ -463,7 +498,12 @@
 </ul>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs plaintext">&lt;template&gt;<br>  &lt;div class=&quot;hello&quot;&gt;<br>    &lt;h3&gt;&#123;&#123; oldObj &#125;&#125;&lt;/h3&gt;<br>    &lt;button @click=&quot;changeInfo&quot;&gt;修改&lt;/button&gt;<br>  &lt;/div&gt;<br>&lt;/template&gt;<br><br>&lt;script&gt;<br>import &#123; toRaw, reactive, markRaw &#125; from &quot;vue&quot;;<br>export default &#123;<br>  setup() &#123;<br>    <br>    // let obj = reactive(&#123;<br>    //   name: &#x27;zs&#x27;<br>    // &#125;)<br>    <br>    // 获取 reactive 或 readonly 代理的原始对象<br>    // let oldObj = toRaw(obj)<br>    // console.log(oldObj);<br><br><br>    // ======= markRaw ========<br>    let obj = &#123;<br>      name: &#x27;zs&#x27;<br>    &#125;<br><br>    // 标记一个对象，使其永远不会再成为响应式对象。<br>    let oldObj = markRaw(obj)<br>    console.log(oldObj);<br><br>    // 设置响应式失效<br>    oldObj = reactive(oldObj)<br><br>    function changeInfo()&#123;<br>      oldObj.name = &#x27;lisi&#x27;<br>      // 数据发生变化 =&gt; 视图没有更新<br>      console.log(oldObj.name );<br>    &#125;<br>    <br>    return &#123;<br>      oldObj,<br>      changeInfo<br>    &#125;<br>  &#125;<br>&#125;<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
 
-<h5 id="provide-与-inject"><a href="#provide-与-inject" class="headerlink" title="provide 与 inject"></a>provide 与 inject</h5><p><img src="/" alt="image-20220801225915620"></p>
+<h5 id="provide-与-inject"><a href="#provide-与-inject" class="headerlink" title="provide 与 inject"></a>provide 与 inject</h5><p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/"
+                      alt="image-20220801225915620"
+                ></p>
 <ul>
 <li><p>作用：实现<strong>祖与后代组件间</strong>通信</p>
 </li>
@@ -560,7 +600,12 @@
 </ul>
 </li>
 </ul>
-<p><img src="/../vue3/image-20220808210007522.png" alt="image-20220808210007522"></p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/../vue3/image-20220808210007522.png"
+                      alt="image-20220808210007522"
+                ></p>
 <h4 id="自定义hook函数"><a href="#自定义hook函数" class="headerlink" title="自定义hook函数"></a>自定义hook函数</h4><ul>
 <li>什么是hook？—— 本质是一个函数，把setup函数中使用的Composition API进行了封装。</li>
 <li>类似于vue2.x中的mixin。</li>
@@ -691,7 +736,12 @@
 <p>那么我们应该怎么来做呢？<strong>使用h()函数</strong></p>
 <p>h() 函数是一个用于创建 vnode 的一个函数；</p>
 <p>其实更准确的命名是 createVNode() 函数，但是为了简便在Vue将之简化为 h() 函数；</p>
-<h6 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a>如何使用？</h6><p><img src="/../vue3/image-20220817212549041.png" alt="image-20220817212549041"></p>
+<h6 id="如何使用？"><a href="#如何使用？" class="headerlink" title="如何使用？"></a>如何使用？</h6><p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/../vue3/image-20220817212549041.png"
+                      alt="image-20220817212549041"
+                ></p>
 <p><strong>注意事项：</strong></p>
 <p>如果没有props，那么通常可以将children作为第二个参数传入；</p>
 <p>如果会产生歧义，可以将null作为第二个参数传入，将children作为第三个参数传入；</p>
@@ -798,7 +848,12 @@
 <p>Pinia 是 Vue.js 团队成员专门为 Vue 开发的一个全新的状态管理库，并且已经被纳入官方 <strong><a class="link"   href="https://link.zhihu.com/?target=https://github.com/vuejs/pinia" >github<i class="fas fa-external-link-alt"></i></a></strong></p>
 <p><strong>为什么有 Vuex 了还要再开发一个 Pinia ？</strong></p>
 <p>先来一张图，看下当时对于**<a class="link"   href="https://link.zhihu.com/?target=https://github.com/vuejs/rfcs/pull/271" > Vuex5 的提案<i class="fas fa-external-link-alt"></i></a>**，就是下一代 Vuex5 应该是什么样子的</p>
-<p><img src="/../vue3/image-20220820223415718.png" alt="image-20220820223415718"></p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/../vue3/image-20220820223415718.png"
+                      alt="image-20220820223415718"
+                ></p>
 <p>Pinia 就是完整的符合了他当时 Vuex5 提案所提到的功能点，所以可以说 Pinia 就是 Vuex5 也不为过，因为它的作者就是官方的开发人员，并且已经被官方接管了，只是目前 Vuex 和 Pinia 还是两个独立的仓库，以后可能会合并，也可能独立发展，只是官方肯定推荐的是 Pinia</p>
 <p>因为在 Vue3 中使用 Vuex 的话需要使用 Vuex4，并且还只能作为一个过渡的选择，存在很大缺陷，所以在 Componsition API 诞生之后，也就设计了全新的状态管理 Pinia</p>
 <h5 id="Pinia-特性"><a href="#Pinia-特性" class="headerlink" title="Pinia 特性"></a><strong>Pinia 特性</strong></h5><ul>

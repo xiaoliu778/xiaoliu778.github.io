@@ -142,7 +142,12 @@
         
         <div class="page-template-content border-box keep-markdown-body">
             
-                <p class='item-img' data-src='/../reactnative/m.jpg'><img src="/../reactnative/m.jpg" alt="图片"></p>
+                <p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/../reactnative/m.jpg"
+                      alt="图片"
+                ></p>
 <span id="more"></span>
 
 <p>console.warn&#x3D;&#x3D;console.log</p>
@@ -253,7 +258,12 @@
 </ul>
 <figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><code class="hljs jsx"><span class="hljs-keyword">import</span> <span class="hljs-title class_">React</span>, &#123;<span class="hljs-title class_">Component</span>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react&#x27;</span>;<br><span class="hljs-keyword">import</span> &#123;<span class="hljs-title class_">View</span>,<span class="hljs-title class_">Text</span>&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;react-native&#x27;</span>;<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">INdex</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">Component</span>&#123;<br>  state = &#123;<span class="hljs-attr">num</span>:<span class="hljs-number">100</span>&#125;<br>  <span class="hljs-comment">// 丢失state</span><br>  <span class="hljs-title function_">handlePress1</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>);<br>  &#125;<br>  <span class="hljs-comment">// 正常</span><br>  handlePress2=<span class="hljs-function">()=&gt;</span>&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>);<br>  &#125;<br>  <span class="hljs-comment">// 正常</span><br>  <span class="hljs-title function_">handlePress3</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>)<br>  &#125;<br>  <span class="hljs-comment">// 正常</span><br>  <span class="hljs-title function_">handlePress4</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span>)<br>  &#125;<br>  <span class="hljs-comment">// 正常</span><br>  <span class="hljs-title function_">render</span>(<span class="hljs-params"></span>)&#123;<br>    <span class="hljs-keyword">return</span> (<br>      <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">View</span>&gt;</span></span><br><span class="language-xml">        &#123;/* 导致事件函数中获取不到state */&#125;</span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">&#123;this.handlePress1&#125;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span><br><span class="language-xml">        &#123;/* 正常 */&#125;</span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">&#123;this.handlePress2&#125;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span><br><span class="language-xml">        &#123;/* 正常 */&#125;</span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">&#123;this.handlePress3&#125;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span><br><span class="language-xml">        &#123;/* 正常 */&#125;</span><br><span class="language-xml">        <span class="hljs-tag">&lt;<span class="hljs-name">Text</span> <span class="hljs-attr">onPress</span>=<span class="hljs-string">&#123;this.handlePress4&#125;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">Text</span>&gt;</span></span><br><span class="language-xml">      <span class="hljs-tag">&lt;/<span class="hljs-name">View</span>&gt;</span></span><br>    )<br>  &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>生命周期指react组件的从撞见到销毁的整个过程中会动触发的函数<br class='item-img' data-src='https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/'><img src="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/" alt="栗子"></p>
+<h3 id="生命周期"><a href="#生命周期" class="headerlink" title="生命周期"></a>生命周期</h3><p>生命周期指react组件的从撞见到销毁的整个过程中会动触发的函数<br><img  
+                     lazyload
+                     alt="image"
+                     data-src="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/"
+                      alt="栗子"
+                ></p>
 <h4 id="主要的生命周期"><a href="#主要的生命周期" class="headerlink" title="主要的生命周期"></a>主要的生命周期</h4><ul>
 <li>constructor<ul>
 <li>组件被实例化的时候发出 一般用做对组件做初始化工作，如设置state等</li>
@@ -275,7 +285,12 @@
 </li>
 </ul>
 <h2 id="mobx"><a href="#mobx" class="headerlink" title="mobx"></a>mobx</h2><p>react中 全局数据库管理 可以简单的实现数据的跨组件共享 类似vue中的vuex</p>
-<p class='item-img' data-src='/'><img src="/" alt="图"></p>
+<p><img  
+                     lazyload
+                     alt="image"
+                     data-src="/"
+                      alt="图"
+                ></p>
 <h3 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h3><ul>
 <li>1.安装以来<ul>
 <li>mobx核心库</li>
