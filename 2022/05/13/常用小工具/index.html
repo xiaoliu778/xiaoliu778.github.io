@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="admin-template,vue,element,后台模板">
+    <meta name="keywords" content="常用工具">
     <meta name="description" content="Hexo Theme Keep">
     <meta name="author" content="刘小烨">
     
     <title>
         
-            从零开始react Native |
+            常用工具 |
         
         小刘博客
     </title>
@@ -142,7 +142,7 @@
         <div class="article-content-container border-box">
 
             <div class="article-title">
-                <span class="title-hover-animation">从零开始react Native</span>
+                <span class="title-hover-animation">常用工具</span>
             </div>
 
             
@@ -168,25 +168,19 @@
         
             <span class="meta-info-item article-create-date">
                 <i class="icon fa-solid fa-calendar-check"></i>&nbsp;
-                <span class="pc">2022-02-13 11:16:53</span>
-                <span class="mobile">2022-02-13 11:16</span>
+                <span class="pc">2022-05-13 11:16:53</span>
+                <span class="mobile">2022-05-13 11:16</span>
             </span>
 
             <span class="meta-info-item article-update-date">
                 <i class="icon fa-solid fa-file-pen"></i>&nbsp;
-                <span class="pc">2023-08-17 11:04:12</span>
+                <span class="pc">2026-01-06 19:20:26</span>
             </span>
         
 
         
             <span class="meta-info-item article-category border-box"><i class="icon fas fa-folder"></i>&nbsp;
                 <ul>
-                    
-                            <li class="category-item">
-                                
-                                <a href="/%E6%A0%87%E7%AD%BE/RN/">RN</a>
-                            </li>
-                        
                     
                 </ul>
             </span>
@@ -218,14 +212,12 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <!-- ![图片](../reactnative/m.jpg) -->
-<span id="more"></span>
-
-<h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><h2 id="expo"><a href="#expo" class="headerlink" title="expo"></a>expo</h2><ul>
-<li>expo是什么？<ul>
-<li>expo是基于expo框架与react-native语法的App开发</li>
+                <h2 id="uinapp"><a href="#uinapp" class="headerlink" title="uinapp"></a>uinapp</h2><ul>
+<li>js计算自定义高度<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> systemInfo = uni.<span class="hljs-title function_">getSystemInfoSync</span>();<br> <span class="hljs-variable language_">this</span>.<span class="hljs-property">statusBarHeight</span> = systemInfo.<span class="hljs-property">statusBarHeight</span>;<br></code></pre></td></tr></table></figure></li>
+<li>github里的uinapp移动端快速搭建项目方案<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-attr">https</span>:<span class="hljs-comment">//github.com/codercup/unibest</span><br></code></pre></td></tr></table></figure></li>
 </ul>
-</li>
+<h2 id="css"><a href="#css" class="headerlink" title="css"></a>css</h2><ul>
+<li>计算自适应宽度等问题<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs javaScript"><br><span class="hljs-comment">//简配版</span><br><span class="hljs-comment">// 监听视口变化，动态设置html的font-size</span><br> <span class="hljs-keyword">function</span> <span class="hljs-title function_">setRem</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> designWidth = <span class="hljs-number">1920</span>; <span class="hljs-comment">// 设计稿宽度</span><br>  <span class="hljs-keyword">const</span> html = <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>;<br>  <span class="hljs-keyword">const</span> clientWidth = html.<span class="hljs-property">clientWidth</span>;<br>  <span class="hljs-comment">// 限制最小/最大宽度（避免极端情况下布局错乱）</span><br>  <span class="hljs-keyword">const</span> width = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">min</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(clientWidth, <span class="hljs-number">1200</span>), <span class="hljs-number">1920</span>);<br>  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;html&#x27;</span>,html,<span class="hljs-string">&#x27;clientWidth&#x27;</span>,clientWidth)<br>  html.<span class="hljs-property">style</span>.<span class="hljs-property">fontSize</span> = (width / designWidth) * <span class="hljs-number">100</span> + <span class="hljs-string">&#x27;px&#x27;</span>;<br>  &#125;<br><span class="hljs-comment">// 初始化 + 监听窗口 resize</span><br><span class="hljs-title function_">setRem</span>();<br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;resize&#x27;</span>, setRem);<br>&lt;/script&gt;<br><br>完全版<br><span class="hljs-comment">// 优化点1：防抖处理，避免resize频繁触发计算</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">setRem</span>(<span class="hljs-params"></span>) &#123;<br>  <span class="hljs-keyword">const</span> designWidth = <span class="hljs-number">1920</span>;<br>  <span class="hljs-keyword">const</span> html = <span class="hljs-variable language_">document</span>.<span class="hljs-property">documentElement</span>;<br>  <span class="hljs-keyword">const</span> clientWidth = html.<span class="hljs-property">clientWidth</span>;<br>  <span class="hljs-keyword">const</span> width = <span class="hljs-title class_">Math</span>.<span class="hljs-title function_">min</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">max</span>(clientWidth, <span class="hljs-number">1200</span>), <span class="hljs-number">2560</span>);<br>  html.<span class="hljs-property">style</span>.<span class="hljs-property">fontSize</span> = (width / designWidth) * <span class="hljs-number">100</span> + <span class="hljs-string">&#x27;px&#x27;</span>;<br>&#125;<br><span class="hljs-comment">// 防抖函数</span><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">debounce</span> = (<span class="hljs-params">fn, delay = <span class="hljs-number">100</span></span>) =&gt; &#123;<br>  <span class="hljs-keyword">let</span> timer = <span class="hljs-literal">null</span>;<br>  <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> &#123;<br>    <span class="hljs-built_in">clearTimeout</span>(timer);<br>    timer = <span class="hljs-built_in">setTimeout</span>(fn, delay);<br>  &#125;;<br>&#125;;<br><span class="hljs-comment">// 初始化 + 防抖监听resize</span><br><span class="hljs-title function_">setRem</span>();<br><span class="hljs-variable language_">window</span>.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;resize&#x27;</span>, <span class="hljs-title function_">debounce</span>(setRem));<br><br><span class="hljs-comment">// 优化点2：配合CSS变量（可选），更灵活</span><br>html &#123;<br>  --base-<span class="hljs-attr">rem</span>: 1rem; <span class="hljs-comment">/* 等同于JS设置的font-size */</span><br>&#125;<br><span class="hljs-comment">/* 业务样式中可直接用 */</span><br>.<span class="hljs-property">box</span> &#123;<br>  <span class="hljs-attr">width</span>: <span class="hljs-title function_">calc</span>(<span class="hljs-number">200</span> * <span class="hljs-title function_">var</span>(--base-rem) / <span class="hljs-number">100</span>); <span class="hljs-comment">/* 设计稿200px */</span><br>&#125;<br></code></pre></td></tr></table></figure></li>
 </ul>
 
             </div>
@@ -240,13 +232,13 @@
                         <div class="article-prev">
                             <a class="prev"
                                rel="prev"
-                               href="/2022/05/13/%E5%B8%B8%E7%94%A8%E5%B0%8F%E5%B7%A5%E5%85%B7/"
+                               href="/2022/05/20/npm%E5%91%BD%E4%BB%A4/"
                             >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                                 <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">常用工具</span>
+                                <span class="post-nav-title-item text-ellipsis">npm命令</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                             </a>
@@ -256,10 +248,10 @@
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/2022/01/26/TypeScript/"
+                               href="/2022/02/13/reactNative/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item text-ellipsis">TypeScript</span>
+                                <span class="post-nav-title-item text-ellipsis">从零开始react Native</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -286,7 +278,7 @@
             <div class="pc-post-toc right-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#expo"><span class="nav-number">2.</span> <span class="nav-text">expo</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#uinapp"><span class="nav-number">1.</span> <span class="nav-text">uinapp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css"><span class="nav-number">2.</span> <span class="nav-text">css</span></a></li></ol>
     </div>
 </div>
 
@@ -448,7 +440,7 @@
             <div class="tablet-post-toc">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#expo"><span class="nav-number">2.</span> <span class="nav-text">expo</span></a></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#uinapp"><span class="nav-number">1.</span> <span class="nav-text">uinapp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#css"><span class="nav-number">2.</span> <span class="nav-text">css</span></a></li></ol>
     </div>
 </div>
 
